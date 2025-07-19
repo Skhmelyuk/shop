@@ -1,0 +1,29 @@
+{% load static %} {% load tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock title %}</title>
+    {% tailwind_css %}
+  </head>
+  <body>
+    <div class="min-h-screen bg-gray-50 text-gray-900 flex flex-col">
+      <header class="container mx-auto">
+        <nav class="flex justify-between">
+          <ul class="flex space-x-4">
+            <li>
+              <a class="text-blue-600" href="{% url 'main:product_list' %}"
+                >All products</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main class="flex-1 container mx-auto py-6">
+        {% block content %}{% endblock content %}
+      </main>
+      <footer class="container mx-auto py-6">footer</footer>
+    </div>
+  </body>
+</html>
